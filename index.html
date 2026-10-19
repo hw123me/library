@@ -1,1 +1,186 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>درس بايثون التفاعلي: المكتبات البرمجية </title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f4f7f6;
+        color: #333;
+      }
+      .container {
+        max-width: 700px;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin: auto;
+      }
+      h1,
+      h2 {
+        color: #2c3e50;
+      }
+      .exercise {
+        background: #eef2f3;
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+      }
+      textarea {
+        width: 100%;
+        height: 100px;
+        font-family: monospace;
+        direction: ltr;
+        text-align: left;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        background-color: #27ae60;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        background-color: #219653;
+      }
+      .code-box {
+        background: #2d3748;
+        color: #fff;
+        padding: 10px;
+        border-radius: 4px;
+        font-family: monospace;
+        direction: ltr;
+        text-align: left;
+        overflow-x: auto;
+      }
+      .corner-link {
+        position: fixed;
+        top: 12px;
+        left: max(20px, calc((100vw - 760px) / 2));
+        z-index: 1;
+        padding: 8px 12px;
+        background: white;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="corner-link">
+      لتجربة الأكواد اضغط على الرابط
+      <a href="https://onecompiler.com/python" target="_blank" rel="noopener noreferrer">https://onecompiler.com/python</a>
+    </div>
+
+    <div class="container">
+      <h1>🐍 درس المكتبات البرمجية في Python</h1>
+      <p>
+        <strong>الشرح المختصر:</strong> نستخدم <code>import</code> لاستخدام المكتبات البرمجية، و
+        <code>from ... import ...</code> لاستخدام دوال أو فئات محددة من المكتبات.
+      </p>
+      <p>يوجد العديد من المكتبات البرمجية في Python، مثل <code>math</code> و <code>sys</code> و <code>datetime</code> و <code>time</code> و <code>os</code> و <code>tkinter</code> و <code>pygame</code>.</p>
+
+      <label><strong>👤 اسم الطالب الثلاثي:</strong></label>
+      <input
+        type="text"
+        id="studentName"
+        placeholder="أدخل اسمك هنا..."
+        required
+      />
+
+      <!-- التمرين الأول -->
+      <div class="exercise">
+        <h3> التمرين الأول: مكتبة sys  </h3>
+        <p>
+          اكتب برنامج يطبع اصدار البايثون الحالي  ويطبع نظام التشغيل الحالي   .
+        </p>
+        <code>ملاحظة: استخدم الدوال <code>sys.version</code> و <code>sys.platform</code></code>
+        <textarea id="ex1" placeholder="# اكتب كود بايثون هنا..."></textarea>
+      </div>
+
+      <!-- التمرين الثاني -->
+     <div class="exercise">
+        <h3> التمرين الثاني: مكتبة math  </h3>
+        <p>
+اكتب برنامج لطباعة ناتج العدد مرفوع للأس 3, ولطباعة جذر العدد 64 , ولطباعة سقف العدد 11.5 وأرضية العدد 11.5        </p>
+       <code>ملاحظة: استخدم الدوال <code>pow</code> و <code>sqrt</code> و <code>ceil</code> و <code>floor</code></code>
+<textarea id="ex2" placeholder="# اكتب كود بايثون هنا..."></textarea>
+      </div>
+      <!-- التمرين الثالث -->
+      <div class="exercise">
+        <h3> التمرين الثالث: التاريخ والوقت </h3>
+        <p>
+         اكتب برنامج لطباعة تاريخ اليوم, وطباعة الوقت الحالي , واسم اليوم الحالي والفترة الزمنية الحالية (صباحاً أو مساءً)  .
+        </p>
+        <code>ملاحظة: استخدم الدوال <code>datetime.date.today</code> و <code>strftime</code></code>
+        <textarea id="ex3" placeholder="# اكتب كود بايثون هنا..."></textarea>
+      </div>
+
+      <button id="sendButton" onclick="sendToTeacher()">
+        🚀 إرسال الحل إلى لوحة المعلم
+      </button>
+    </div>
+
+    <script>
+      function sendToTeacher() {
+        const name = document.getElementById("studentName").value;
+        const ans1 = document.getElementById("ex1").value;
+        const ans2 = document.getElementById("ex2").value;
+        const ans3 = document.getElementById("ex3").value;
+
+        if (!name) {
+          alert("الرجاء كتابة اسمك أولاً!");
+          return;
+        }
+
+        const sendButton = document.getElementById("sendButton");
+        sendButton.disabled = true;
+        sendButton.textContent = "⏳ جارٍ الإرسال...";
+
+        const url =
+          "https://script.google.com/macros/s/AKfycbxVUJ4dtUOV75pWazC2WfWucnOlr1lvHUhZoEb8PdSLMeilNztxqT9M1dGtBLqhKyBn5w/exec"; // <--- ضع الرابط هنا بين العلامتين
+
+        fetch(url, {
+          method: "POST",
+          body: JSON.stringify({
+            name: name,
+            ans1: ans1,
+            ans2: ans2,
+            ans3: ans3,
+          }),
+        })
+          .then((res) => {
+            sendButton.disabled = false;
+            sendButton.textContent = "🚀 إرسال الحل إلى لوحة المعلم";
+            alert(
+              "تم إرسال إجابتك بنجاح يا " +
+                name +
+                "! ستظهر الآن في لوحة المعلم.",
+            );
+          })
+          .catch((err) => {
+            sendButton.disabled = false;
+            sendButton.textContent = "🚀 إرسال الحل إلى لوحة المعلم";
+            alert("حدث خطأ أثناء الإرسال!");
+          });
+      }
+    </script>
+  </body>
+</html>
 
